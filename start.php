@@ -49,6 +49,14 @@ function scope_theme_init() {
 	
 	// extend js view
 	elgg_extend_view("js/elgg", "js/scope_theme/functions");
+        elgg_define_js('jquery.treeview', array(
+                'src' => '/mod/scope_theme/vendors/jquery-treeview/jquery.treeview.min.js',
+                'exports' => 'jQuery.fn.treeview',
+                'deps' => array('jquery'),
+        ));
+	$css_url = 'mod/scope_theme/vendors/jquery-treeview/jquery.treeview.css';
+	elgg_register_css('jquery.treeview', $css_url);
+
 }
 
 function qq_river_auto_update_page_handler($page) {
@@ -207,6 +215,7 @@ function scope_theme_pagesetup() {
 			$item->setText('<i class="fa fa-rss fa-lg"></i>');
 			elgg_register_menu_item('extras', $item);
 		}*/
+		$url = current_page_url();
 		$url = elgg_format_url($url);
 		elgg_register_menu_item('extras', array(
 			'name' => 'rss',
@@ -271,47 +280,47 @@ function scope_theme_setup_head($hook, $type, $data) {
 		'name' => 'viewport',
 		'content' => 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no',
 	);
-
-	$data['links']['apple-touch-icon'] = array(
-		'rel' => 'apple-touch-icon',
-		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon-128.png'),
-	);
-
+//
+//	$data['links']['apple-touch-icon'] = array(
+//		'rel' => 'apple-touch-icon',
+//		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon-128.png'),
+//	);
+//
 	// favicons
-	$data['links']['icon-ico'] = array(
-		'rel' => 'icon',
-		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon.ico'),
-	);
-	$data['links']['icon-vector'] = array(
-		'rel' => 'icon',
-		'sizes' => '16x16 32x32 48x48 64x64 128x128',
-		'type' => 'image/svg+xml',
-		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon.svg'),
-	);
-	$data['links']['icon-16'] = array(
-		'rel' => 'icon',
-		'sizes' => '16x16',
-		'type' => 'image/png',
-		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon-16.png'),
-	);
-	$data['links']['icon-32'] = array(
-		'rel' => 'icon',
-		'sizes' => '32x32',
-		'type' => 'image/png',
-		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon-32.png'),
-	);
-	$data['links']['icon-64'] = array(
-		'rel' => 'icon',
-		'sizes' => '64x64',
-		'type' => 'image/png',
-		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon-64.png'),
-	);
-	$data['links']['icon-128'] = array(
-		'rel' => 'icon',
-		'sizes' => '128x128',
-		'type' => 'image/png',
-		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon-128.png'),
-	);
+//	$data['links']['icon-ico'] = array(
+//		'rel' => 'icon',
+//		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon.ico'),
+//	);
+//	$data['links']['icon-vector'] = array(
+//		'rel' => 'icon',
+//		'sizes' => '16x16 32x32 48x48 64x64 128x128',
+//		'type' => 'image/svg+xml',
+//		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon.svg'),
+//	);
+//	$data['links']['icon-16'] = array(
+//		'rel' => 'icon',
+//		'sizes' => '16x16',
+//		'type' => 'image/png',
+//		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon-16.png'),
+//	);
+//	$data['links']['icon-32'] = array(
+//		'rel' => 'icon',
+//		'sizes' => '32x32',
+//		'type' => 'image/png',
+//		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon-32.png'),
+//	);
+//	$data['links']['icon-64'] = array(
+//		'rel' => 'icon',
+//		'sizes' => '64x64',
+//		'type' => 'image/png',
+//		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon-64.png'),
+//	);
+//	$data['links']['icon-128'] = array(
+//		'rel' => 'icon',
+//		'sizes' => '128x128',
+//		'type' => 'image/png',
+//		'href' => elgg_normalize_url('mod/scope_theme/graphics/favicon/favicon-128.png'),
+//	);
 
 	return $data;
 }
