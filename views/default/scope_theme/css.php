@@ -76,6 +76,7 @@
 	border-radius: 0 0 3px 3px;
 	box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.25);
 }
+
 .elgg-menu-topbar-alt li ul > li > a {
 	text-decoration: none;
 	padding: 10px 20px;

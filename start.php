@@ -49,13 +49,6 @@ function scope_theme_init() {
 	
 	// extend js view
 	elgg_extend_view("js/elgg", "js/scope_theme/functions");
-        elgg_define_js('jquery.treeview', array(
-                'src' => '/mod/scope_theme/vendors/jquery-treeview/jquery.treeview.min.js',
-                'exports' => 'jQuery.fn.treeview',
-                'deps' => array('jquery'),
-        ));
-	$css_url = 'mod/scope_theme/vendors/jquery-treeview/jquery.treeview.css';
-	elgg_register_css('jquery.treeview', $css_url);
 
 }
 
